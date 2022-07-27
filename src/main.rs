@@ -1,12 +1,15 @@
 #[macro_use] extern crate rocket;
 
-use rocket::{tokio::sync::broadcast::{channel, Sender, error::RecvError}, serde::{Serialize, Deserialize}, State, Shutdown, response::stream::{EventStream, Event}, fs::{relative, FileServer}};
+use rocket::{State, Shutdown};
 use rocket::form::Form;
+use rocket::fs::{relative, FileServer};
+use rocket::response::stream::{EventStream, Event};
+use rocket::serde::{Serialize, Deserialize};
 use rocket::tokio::select;
+use rocket::{tokio::sync::broadcast::{channel, Sender, error::RecvError}};
 
 #[derive(Debug, Clone, FromForm, Serialize, Deserialize)]
 #[serde(crate = "rocket::serde")] 
-
 struct Message {
     #[field(validate = len(..30))]
     pub room: String,
