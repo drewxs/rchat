@@ -924,6 +924,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "rocket-chat"
+version = "0.1.0"
+dependencies = [
+ "rand",
+ "rocket",
+]
+
+[[package]]
 name = "rocket_codegen"
 version = "0.5.0-rc.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -964,14 +972,6 @@ dependencies = [
  "time",
  "tokio",
  "uncased",
-]
-
-[[package]]
-name = "rust-chat"
-version = "0.1.0"
-dependencies = [
- "rand",
- "rocket",
 ]
 
 [[package]]
